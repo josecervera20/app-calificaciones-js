@@ -28,6 +28,17 @@ function hasPassingGrade(score) {
   return getGrade(score) !== "F";
 }
 
-console.log(hasPassingGrade(100));
-console.log(hasPassingGrade(53));
-console.log(hasPassingGrade(87));
+function studentMsg(totalScores, studentScore) {
+  const average = getAverage(totalScores);
+  const grade = getGrade(studentScore);
+  const passed = hasPassingGrade(studentScore);
+  let message = "Class average: " + average + ". Your grade: " + grade + ". ";
+
+  if (passed) {
+    message = message + "You passed the course.";
+  } else {
+    message = message + "You failed the course.";
+  }
+  return message;
+}
+console.log(studentMsg([92, 88, 12, 77, 57, 100, 67, 38, 97, 89], 37));
